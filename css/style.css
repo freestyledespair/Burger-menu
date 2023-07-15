@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu-without-burger {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+#toggle {
+    /* opacity - прозрачность */
+    opacity: 0;
+}
+
+/* стилизация кнопки */
+.btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1;
+    /* background-color: red; */
+}
+
+.btn span,
+.btn span::before,
+.btn span::after {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #616161;
+    transition: 0.5s ease 0s;
+}
+
+
+.btn span::before {
+    content: '';
+    top: -8px;
+}
+
+
+.btn span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    padding: 80px 0;
+    list-style: none;
+    text-align: center;
+    background: gray;
+    box-shadow: 1px 0 5px rgba(0, 0, 0, 0.3);
+    transition: 0.5s ease 0s;
+}
+
+.menu_item {
+    display: block;
+    padding: 15px 20px;
+    color: red;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.5s ease 0s;
+    position: relative;
+}
+
+.menu_item::after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    bottom: 0;
+    left: 5%;
+
+}
+
+.menu_item:hover {
+    background-color: white;
+}
+
+#toggle:checked~.btn span {
+    transform: rotate(45deg);
+
+}
+
+#toggle:checked~.btn span::before {
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+#toggle:checked~.btn span::after {
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+#toggle:checked~.menu {
+    left: 0;
+    visibility: visible;
+}
